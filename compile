@@ -1,0 +1,14 @@
+#!/bin/bash
+export PATH="$HOME/Projects/asm/cross/bin:$PATH"
+sd="src"
+bd="build"
+ac="nasm"
+acflags="-f bin"
+cc="i386-elf-gcc"
+ccflags=""
+cclibs=""
+rm -f $bd/boot.bin $bd/krnl.bin
+echo "boot.s"
+$ac $sd/boot/boot.s $acflags -o $bd/boot.bin
+echo "meme.c"
+$cc $sd/meme.c $ccflags -o $bd/meme.bin
